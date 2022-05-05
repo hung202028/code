@@ -1,0 +1,9 @@
+kingdom:
+  type: ELVEN_KINGDOM
+  data:
+    army:
+      name: 'Army_001'
+    castle:
+      name: 'Castle_001'
+    king:
+      name: 'King_001'
