@@ -1,4 +1,6 @@
 <?php
+// https://leetcode.com/problems/smallest-string-with-swaps/
+
 
 class QuickUnion
 {
@@ -51,3 +53,41 @@ class QuickUnion
     }
 }
 
+
+class Solution
+{
+    /**
+     * @param String $s
+     * @param Integer[][] $pairs
+     * @return String
+     */
+    function smallestStringWithSwaps($s, $pairs)
+    {
+        $n = strlen($s);
+
+        $qu = new QuickUnion($n);
+        foreach ($pairs as list ($i, $j)) { $qu->union($i, $j); }
+
+        $map = [];
+        for ($i = 0; $i < $n; $i++) {
+            $root = $qu->find($i);
+            $arr = $map[$root] ?? [];
+            $arr[] = $i; $map[$root] = $arr;
+        }
+
+        $res = $s;
+        foreach ($map as $_ => $arr) {
+            $chars = array_map(function ($index) use ($s) { return $s[$index]; }, $arr);
+            sort($chars);
+
+            $m = count($chars);
+            for ($i = 0; $i < $m; $i++) {
+                $res[$arr[$i]] = $chars[$i];
+            }
+        }
+
+        return $res;
+    }
+}
+
+// Note: TLE
