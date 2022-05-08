@@ -1,14 +1,8 @@
-
 ## Intent
+> The Builder pattern is useful when you need to create an object with lots of possible configuration options.
 
-Separate the construction of a complex object from its representation so that the same construction
-process can create different representations.
+## Example
+> One of the best applications of the Builder pattern is an SQL query builder. The builder interface defines the common steps required to build a generic SQL query. On the other hand, concrete builders, corresponding to different SQL dialects, implement these steps by returning parts of SQL queries that can be executed in a particular database engine.
 
-## In plain words
-
-> Allows you to create different flavors of an object while avoiding constructor pollution. Useful
-> when there could be several flavors of an object. Or when there are a lot of steps involved in
-> creation of an object.
-
-
-Reference: https://github.com/iluwatar/java-design-patterns/blob/master/builder/README.md
+Reference:
+https://refactoring.guru/design-patterns/builder/php/example#example-1

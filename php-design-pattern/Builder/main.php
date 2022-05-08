@@ -2,21 +2,13 @@
 
 require_once '../autoload.php';
 
-use Builder\HeroBuilder;
-use Builder\Hero;
-use Builder\Profession;
-use Builder\Armor;
-use Builder\Weapon;
-use Builder\HairColor;
-use Builder\HairType;
+use Builder\MySQLQueryBuilder;
 
-$builder = new HeroBuilder();
-$builder->withName('DemoHero')
-    ->withArmor(Armor::CHAIN_MAIL)
-    ->withHairColor(HairColor::BLACK)
-    ->withHairType(HairType::BALD)
-    ->withProfession(Profession::PRIEST)
-    ->withWeapon(Weapon::AXE);
+$builder = new MySQLQueryBuilder();
+$builder->select('customers', ['id', 'firstname', 'lastname'])
+    ->where('customers.age > 18')
+    ->where('customers.age < 30')
+    ->where(sprintf("customers.email LIKE '%s'", '%test%'))
+    ->limit(10, 20);
 
-$hero = new Hero($builder);
-echo $hero;
+echo $builder->assemble();
