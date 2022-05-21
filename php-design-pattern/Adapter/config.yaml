@@ -1,0 +1,9 @@
+notifier:
+  enable: true
+  type: 3 # 1 - email; 2 - slack; 3 - both email and slack
+
+alert:
+  emails: admin1@gmail.com, admin2@gmail.com, admin3@gmail.com
+  slacks:
+    channels: channel_001, channel_002, channel_003
+    apiKey: secret
