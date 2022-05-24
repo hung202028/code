@@ -1,0 +1,4 @@
+- Step1: Ascending sort edges by their weight.
+- Step2: Add edges in that order into the Minimum Spaning Tree, skip
+edges that would produce cycles int the Minimum Spanning Tree.
+- Step3: Repeat Step2 until N-1 edges are added.
